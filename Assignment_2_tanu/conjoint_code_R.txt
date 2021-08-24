@@ -1,0 +1,22 @@
+choice-based conjoint
+
+## Conjoint analysis for Laptop feature case
+## Levels are CPU Processor, RAM, OS, Hard Disk
+##setwd("path")
+
+library(conjoint)
+> ## Read the carpet preference, profile and level dataset
+> survey<-read.csv("C:/Users/Tanu/Downloads/survey.csv", header = TRUE)
+> surveyattributes<-read.csv("C:/Users/Tanu/Downloads/surveyattributes.csv", header = TRUE)
+> surveylvl<-read.csv("C:/Users/Tanu/Downloads/surveylvl.csv", header = TRUE)
+> print(survey)
+> print(surveyattributes)
+> print(surveylvl)
+## Generate importance
+caImportance(y=survey, x=surveyattributes)
+## Generate total utilities
+caTotalUtilities(y=survey, x=surveyattributes)
+## Part worths (utilities) of levels (model parameters for whole sample)
+library(conjoint)
+##library(rgl)
+Conjoint(y=survey, x=surveyattributes, z=surveylvl)
